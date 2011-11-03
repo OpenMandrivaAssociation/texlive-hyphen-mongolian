@@ -1,5 +1,11 @@
+# revision 23092
+# category TLCore
+# catalog-ctan undef
+# catalog-date undef
+# catalog-license undef
+# catalog-version undef
 Name:		texlive-hyphen-mongolian
-Version:	20111102
+Version:	20111103
 Release:	1
 Summary:	Mongolian hyphenation patterns in Cyrillic script
 Group:		Publishing
@@ -48,6 +54,7 @@ two sets of patterns that will hopefully be merged in future.
 %_texmf_language_dat_d/hyphen-mongolian
 %_texmf_language_def_d/hyphen-mongolian
 %_texmf_language_lua_d/hyphen-mongolian
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,6 +63,8 @@ two sets of patterns that will hopefully be merged in future.
 %build
 
 %install
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-mongolian <<EOF
 %% from hyphen-mongolian:
