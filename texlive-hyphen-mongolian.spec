@@ -17,35 +17,18 @@ BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-hyphen-base
 Requires:	texlive-hyph-utf8
-Conflicts:	texlive-texmf <= 20110705-3
 
 %description
 Hyphenation patterns for Mongolian in T2A, LMC and UTF-8
 encodings. LMC encoding is used in MonTeX. The package includes
 two sets of patterns that will hopefully be merged in future.
 
-%pre
-    %_texmf_language_dat_pre
-    %_texmf_language_def_pre
-    %_texmf_language_lua_pre
-
 %post
-    %_texmf_language_dat_post
-    %_texmf_language_def_post
-    %_texmf_language_lua_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_language_dat_pre
-	%_texmf_language_def_pre
-	%_texmf_language_lua_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_language_dat_post
-	%_texmf_language_def_post
-	%_texmf_language_lua_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -53,7 +36,6 @@ two sets of patterns that will hopefully be merged in future.
 %_texmf_language_dat_d/hyphen-mongolian
 %_texmf_language_def_d/hyphen-mongolian
 %_texmf_language_lua_d/hyphen-mongolian
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -62,8 +44,6 @@ two sets of patterns that will hopefully be merged in future.
 %build
 
 %install
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-mongolian <<EOF
 %% from hyphen-mongolian:
