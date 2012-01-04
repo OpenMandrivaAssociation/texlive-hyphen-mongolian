@@ -46,13 +46,13 @@ two sets of patterns that will hopefully be merged in future.
 %install
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-mongolian <<EOF
-%% from hyphen-mongolian:
+\%\% from hyphen-mongolian:
 mongolian loadhyph-mn-cyrl.tex
 mongolianlmc loadhyph-mn-cyrl-x-lmc.tex
 EOF
 mkdir -p %{buildroot}%{_texmf_language_def_d}
 cat > %{buildroot}%{_texmf_language_def_d}/hyphen-mongolian <<EOF
-%% from hyphen-mongolian:
+\%\% from hyphen-mongolian:
 \addlanguage{mongolian}{loadhyph-mn-cyrl.tex}{}{2}{2}
 \addlanguage{mongolianlmc}{loadhyph-mn-cyrl-x-lmc.tex}{}{2}{2}
 EOF
