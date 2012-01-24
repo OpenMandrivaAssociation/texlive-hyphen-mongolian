@@ -5,8 +5,8 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-hyphen-mongolian
-Version:	20111103
-Release:	2
+Version:	20120124
+Release:	1
 Summary:	Mongolian hyphenation patterns in Cyrillic script
 Group:		Publishing
 URL:		http://tug.org/texlive
@@ -46,16 +46,18 @@ two sets of patterns that will hopefully be merged in future.
 %install
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-mongolian <<EOF
-\%\% from hyphen-mongolian:
+\%% from hyphen-mongolian:
 mongolian loadhyph-mn-cyrl.tex
 mongolianlmc loadhyph-mn-cyrl-x-lmc.tex
 EOF
+perl -pi -e 's|\\%%|%%|;' %{buildroot}%{_texmf_language_dat_d}/hyphen-mongolian
 mkdir -p %{buildroot}%{_texmf_language_def_d}
 cat > %{buildroot}%{_texmf_language_def_d}/hyphen-mongolian <<EOF
-\%\% from hyphen-mongolian:
+\%% from hyphen-mongolian:
 \addlanguage{mongolian}{loadhyph-mn-cyrl.tex}{}{2}{2}
 \addlanguage{mongolianlmc}{loadhyph-mn-cyrl-x-lmc.tex}{}{2}{2}
 EOF
+perl -pi -e 's|\\%%|%%|;' %{buildroot}%{_texmf_language_def_d}/hyphen-mongolian
 mkdir -p %{buildroot}%{_texmf_language_lua_d}
 cat > %{buildroot}%{_texmf_language_lua_d}/hyphen-mongolian <<EOF
 -- from hyphen-mongolian:
