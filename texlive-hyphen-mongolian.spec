@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-hyphen-mongolian
 Version:	20120611
-Release:	3
+Release:	4
 Summary:	Mongolian hyphenation patterns in Cyrillic script
 Group:		Publishing
 URL:		http://tug.org/texlive
