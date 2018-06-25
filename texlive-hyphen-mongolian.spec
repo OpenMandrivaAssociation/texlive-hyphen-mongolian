@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-hyphen-mongolian
-Version:	20170414
+Version:	20180303
 Release:	1
 Summary:	Mongolian hyphenation patterns in Cyrillic script
 Group:		Publishing
